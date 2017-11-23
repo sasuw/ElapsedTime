@@ -18,8 +18,7 @@ public class BasicEstimator extends BaseEstimator<BasicEstimator> {
 
 	@Override
 	public long getRemainingTime(TimeUnit timeUnit) {
-		// TODO Auto-generated method stub
-		return 0;
+		return this.getTotalWorkUnits() / this.getRemainingWorkUnits() * this.getElapsedTime(timeUnit);
 	}
 
 	@Override

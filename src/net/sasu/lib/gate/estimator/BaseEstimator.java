@@ -15,6 +15,7 @@ import net.sasu.lib.gate.time.Timer;
  */
 public abstract class BaseEstimator<T> implements Estimator<T> {
 
+	private long totalWorkUnits;
 	private long remainingWorkUnits;
 	private Timer timer;
 
@@ -54,10 +55,19 @@ public abstract class BaseEstimator<T> implements Estimator<T> {
 	/**
 	 * Initializes the number of remaining work units
 	 * 
-	 * @param remainingWorkUnitsArg
+	 * @param totalWorkUnitsArg
 	 */
-	public void initializeRemainingWorkUnits(long remainingWorkUnitsArg) {
-		this.remainingWorkUnits = remainingWorkUnitsArg;
+	public void initializeRemainingWorkUnits(long totalWorkUnitsArg) {
+		this.remainingWorkUnits = totalWorkUnitsArg;
+		this.totalWorkUnits = totalWorkUnitsArg;
+	}
+
+	public long getRemainingWorkUnits() {
+		return this.remainingWorkUnits;
+	}
+
+	public long getTotalWorkUnits() {
+		return totalWorkUnits;
 	}
 
 }
