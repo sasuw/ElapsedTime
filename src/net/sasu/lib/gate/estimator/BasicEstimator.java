@@ -2,6 +2,8 @@ package net.sasu.lib.gate.estimator;
 
 import java.util.concurrent.TimeUnit;
 
+import net.sasu.lib.gate.time.TimeTeller;
+
 /**
  * Basic implementation for estimations with low variability.
  * 
@@ -23,8 +25,8 @@ public class BasicEstimator extends BaseEstimator<BasicEstimator> {
 
 	@Override
 	public String getRemainingTimeAsString() {
-		// TODO Auto-generated method stub
-		return null;
+		TimeUnit timeUnit = TimeUnit.NANOSECONDS;
+		return TimeTeller.outputElapsedTime(this.getRemainingTime(timeUnit), timeUnit);
 	}
 
 }
