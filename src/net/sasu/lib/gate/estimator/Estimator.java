@@ -33,12 +33,36 @@ public interface Estimator<T> {
 	public void completeWorkUnits(long workUnitsCompleted);
 	
 	/**
+	 * Returns elapsed time in given time units
+	 * 
+	 * @param timeUnit
+	 * @return
+	 */
+	public long getElapsedTime(TimeUnit timeUnit);
+	
+	/**
 	 * Returns remaining time in given time units
 	 * 
 	 * @param timeUnit
 	 * @return
 	 */
 	public long getRemainingTime(TimeUnit timeUnit);
+	
+	/**
+	 * Returns remaining time as a human-readable string
+	 * 
+	 * @param timeUnit
+	 * @return
+	 */
+	public String getRemainingTimeAsString();
+	
+	/**
+	 * Returns elapsed time as a human-readable string
+	 * 
+	 * @param timeUnit
+	 * @return
+	 */
+	public String getElapsedTimeAsString();
 	
 	/**
 	 * Stops estimator
