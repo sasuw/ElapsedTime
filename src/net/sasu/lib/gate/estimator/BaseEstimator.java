@@ -5,6 +5,7 @@ package net.sasu.lib.gate.estimator;
 
 import java.util.concurrent.TimeUnit;
 
+import net.sasu.lib.gate.time.Timer;
 import net.sasu.lib.gate.time.NanosecondTimer;
 
 /**
@@ -17,7 +18,7 @@ public abstract class BaseEstimator<T> implements Estimator<T> {
 
     private long totalWorkUnits;
     private long remainingWorkUnits;
-    private NanosecondTimer timer;
+    private Timer timer;
 
     @Override
     public void completeWorkUnits(long workUnitsCompleted) {
@@ -44,7 +45,8 @@ public abstract class BaseEstimator<T> implements Estimator<T> {
 
     @Override
     public void start() {
-        this.timer = NanosecondTimer.getInstanceAndStart();
+        this.timer = new NanosecondTimer();
+        timer.start();
     }
 
     @Override

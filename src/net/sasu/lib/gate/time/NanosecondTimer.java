@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  * @author Sasu
  *
  */
-public class NanosecondTimer implements Timer<NanosecondTimer> {
+public class NanosecondTimer implements Timer {
     
     private long startTime; // in nanoseconds
     private long elapsedTime; // in nanoseconds
@@ -40,7 +40,7 @@ public class NanosecondTimer implements Timer<NanosecondTimer> {
     
     /**
      * Returns elapsed time in nanoseconds
-     * 
+     *
      * @return
      */
     public long getElapsedTimeRaw() {
@@ -58,16 +58,6 @@ public class NanosecondTimer implements Timer<NanosecondTimer> {
         return this.getElapsedTime();
     }
 
-    /**
-     * Returns elapsed time as a human-readable string, e.g. "10 ms". If the elapsed
-     * time is at least one second, the time is returned always in seconds with
-     * three decimals, rounded down.
-     * 
-     * @return
-     */
-    @Override
-    public String getElapsedTime() {
-        return TimeTeller.outputElapsedTime(this.elapsedTime, TimeUnit.NANOSECONDS);
-    }
+
 
 }
