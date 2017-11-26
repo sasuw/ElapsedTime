@@ -1,6 +1,7 @@
 package net.sasu.lib.gate.estimator;
 
 import java.util.concurrent.TimeUnit;
+import net.sasu.lib.gate.time.Timer;
 
 /**
  * Estimator performing the concrete estimation, either general or optimized
@@ -10,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @param <T>
  */
-public interface Estimator<T> {
+public interface Estimator<T extends Estimator<T>> {
     
     /**
      * Initializes Estimator instance and returns a concrete instance.
@@ -19,6 +20,14 @@ public interface Estimator<T> {
      * @return
      */
     public T init(long remainingWorkUnits);
+
+    /**
+     * Initializes Estimator instance and returns a concrete instance.
+     *
+     * @param remainingWorkUnits
+     * @return
+     */
+    public T init(long remainingWorkUnits, Timer timer);
     
     /**
      * Starts estimator
@@ -41,7 +50,8 @@ public interface Estimator<T> {
     public long getElapsedTime(TimeUnit timeUnit);
     
     /**
-     * Returns remaining time in given time units
+     * Returns remaining time in given time units. If time
+     * cannot be calculated -1 is returned.
      * 
      * @param timeUnit
      * @return
@@ -66,4 +76,6 @@ public interface Estimator<T> {
      * Stops estimator
      */
     public void stop();
+
+    public void setTimer(Timer timer);
 }
