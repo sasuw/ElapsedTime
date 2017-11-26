@@ -14,11 +14,17 @@ import net.sasu.lib.gate.time.NanosecondTimer;
  * @author Sasu
  *
  */
-public abstract class BaseEstimator<T> implements Estimator<T> {
+public abstract class BaseEstimator implements Estimator {
 
     private long totalWorkUnits;
     private long remainingWorkUnits;
     private Timer timer;
+
+    public Estimator init(long remainingWorkUnits, Timer timer){
+        final Estimator init = this.init(remainingWorkUnits);
+        init.setTimer(timer);
+        return init;
+    }
 
     @Override
     public void completeWorkUnits(long workUnitsCompleted) {
@@ -72,4 +78,8 @@ public abstract class BaseEstimator<T> implements Estimator<T> {
         return totalWorkUnits;
     }
 
+    @Override
+    public void setTimer(Timer timer) {
+        this.timer = timer;
+    }
 }
