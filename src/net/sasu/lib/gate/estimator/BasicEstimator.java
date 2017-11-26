@@ -34,7 +34,7 @@ public class BasicEstimator extends BaseEstimator {
 
         final long elapsedTime = this.getElapsedTime(timeUnit);
 
-        return remainingWorkUnits / completedWorkUnits * elapsedTime;
+        return Math.round((float) remainingWorkUnits / completedWorkUnits * elapsedTime);
     }
 
     @Override
