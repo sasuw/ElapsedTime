@@ -1,6 +1,5 @@
 package net.sasu.lib.gate.time;
 
-import static org.junit.Assert.assertEquals;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -9,8 +8,10 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.Assertions;
 
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Tests Timer
@@ -18,7 +19,7 @@ import java.util.Set;
  * @author Sasu
  *
  */
-public class TimerTest {
+public class TimeTellerTest {
 
 	@Test
 	public void getElapsedTimeTest() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
@@ -38,14 +39,10 @@ public class TimerTest {
 		inputExcpectedOutputMap.put(15030000000L, "15.030 seconds");
 		inputExcpectedOutputMap.put(12345678901L, "12.345 seconds");
 
-		Timer timer = new Timer();
-		Method method = Timer.class.getDeclaredMethod("getElapsedTime", Long.TYPE);
-		method.setAccessible(true);
-
 		Set<Entry<Long, String>> entrySet = inputExcpectedOutputMap.entrySet();
 		for (Entry<Long, String> entry : entrySet) {
-			String testResult = (String) method.invoke(timer, entry.getKey());
-			assertEquals(entry.getValue(), testResult);
+			final String testResult = TimeTeller.outputElapsedTime(entry.getKey(), TimeUnit.NANOSECONDS);
+			Assertions.assertEquals(entry.getValue(), testResult);
 		}
 	}
 }
