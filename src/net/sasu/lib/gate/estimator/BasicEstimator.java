@@ -12,21 +12,21 @@ import net.sasu.lib.gate.time.TimeTeller;
  */
 public class BasicEstimator extends BaseEstimator<BasicEstimator> {
 
-	@Override
-	public BasicEstimator init(long remainingWorkUnitsArg) {
-		this.initializeRemainingWorkUnits(remainingWorkUnitsArg);
-		return this;
-	}
+    @Override
+    public BasicEstimator init(long remainingWorkUnitsArg) {
+        this.initializeRemainingWorkUnits(remainingWorkUnitsArg);
+        return this;
+    }
 
-	@Override
-	public long getRemainingTime(TimeUnit timeUnit) {
-		return this.getTotalWorkUnits() / this.getRemainingWorkUnits() * this.getElapsedTime(timeUnit);
-	}
+    @Override
+    public long getRemainingTime(TimeUnit timeUnit) {
+        return this.getTotalWorkUnits() / this.getRemainingWorkUnits() * this.getElapsedTime(timeUnit);
+    }
 
-	@Override
-	public String getRemainingTimeAsString() {
-		TimeUnit timeUnit = TimeUnit.NANOSECONDS;
-		return TimeTeller.outputElapsedTime(this.getRemainingTime(timeUnit), timeUnit);
-	}
+    @Override
+    public String getRemainingTimeAsString() {
+        TimeUnit timeUnit = TimeUnit.NANOSECONDS;
+        return TimeTeller.outputElapsedTime(this.getRemainingTime(timeUnit), timeUnit);
+    }
 
 }
