@@ -51,7 +51,6 @@ public interface Estimator<T> {
 	/**
 	 * Returns remaining time as a human-readable string
 	 * 
-	 * @param timeUnit
 	 * @return
 	 */
 	public String getRemainingTimeAsString();
@@ -59,7 +58,6 @@ public interface Estimator<T> {
 	/**
 	 * Returns elapsed time as a human-readable string
 	 * 
-	 * @param timeUnit
 	 * @return
 	 */
 	public String getElapsedTimeAsString();
