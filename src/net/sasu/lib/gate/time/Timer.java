@@ -1,10 +1,23 @@
 package net.sasu.lib.gate.time;
 
-public interface Timer<T> {
+import java.util.concurrent.TimeUnit;
+
+public interface Timer {
 
     public void start();
 
     public void stop();
 
-    public String getElapsedTime();
+    public long getElapsedTimeRaw();
+
+    /**
+     * Returns elapsed time as a human-readable string, e.g. "10 ms". If the elapsed
+     * time is at least one second, the time is returned always in seconds with
+     * three decimals, rounded down.
+     *
+     * @return
+     */
+    default String getElapsedTime() {
+        return TimeTeller.outputElapsedTime(this.getElapsedTimeRaw(), TimeUnit.NANOSECONDS);
+    }
 }
