@@ -15,6 +15,7 @@ public class NanosecondTimer implements Timer {
     
     private long startTime; // in nanoseconds
     private long elapsedTime; // in nanoseconds
+    private boolean isRunning = false;
 
     public NanosecondTimer() {
         super();
@@ -27,6 +28,7 @@ public class NanosecondTimer implements Timer {
     public void start() {
         this.elapsedTime = 0;
         this.startTime = System.nanoTime();
+        this.isRunning = true;
     }
 
     /**
@@ -34,8 +36,8 @@ public class NanosecondTimer implements Timer {
      */
     @Override
     public void stop() {
-        long endTime = System.nanoTime();
-        this.elapsedTime = endTime - this.startTime;
+        this.elapsedTime = System.nanoTime() - this.startTime;
+        this.isRunning = false;
     }
     
     /**
@@ -44,6 +46,9 @@ public class NanosecondTimer implements Timer {
      * @return
      */
     public long getElapsedTimeRaw() {
+        if(this.isRunning){
+            return System.nanoTime() - this.startTime;
+        }
         return this.elapsedTime;
     }
 

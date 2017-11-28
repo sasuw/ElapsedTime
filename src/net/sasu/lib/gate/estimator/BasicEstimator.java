@@ -25,22 +25,25 @@ public class BasicEstimator extends BaseEstimator {
         final long totalWorkUnits = this.getTotalWorkUnits();
 
         final long completedWorkUnits = totalWorkUnits - remainingWorkUnits;
-        if(completedWorkUnits == 0){
+        if (completedWorkUnits == 0) {
             return -1;
         }
-        if(completedWorkUnits == totalWorkUnits){
+        if (completedWorkUnits == totalWorkUnits) {
             return 0;
         }
 
         final long elapsedTime = this.getElapsedTime(timeUnit);
 
-        return Math.round((float) remainingWorkUnits / completedWorkUnits * elapsedTime);
+        float completionFactor = (float) completedWorkUnits / remainingWorkUnits;
+        if (completedWorkUnits == 0f){
+            return -1;
+        }
+        System.out.println("remainingWorkUnits:" + remainingWorkUnits);
+        System.out.println("completedWorkUnits:" + completedWorkUnits);
+        System.out.println("completionFactor:" + completionFactor);
+
+        return remainingWorkUnits * elapsedTime / completedWorkUnits;
     }
 
-    @Override
-    public String getRemainingTimeAsString() {
-        TimeUnit timeUnit = TimeUnit.NANOSECONDS;
-        return TimeTeller.outputElapsedTime(this.getRemainingTime(timeUnit), timeUnit);
-    }
 
 }
