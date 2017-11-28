@@ -5,6 +5,7 @@ package net.sasu.lib.gate.estimator;
 
 import java.util.concurrent.TimeUnit;
 
+import net.sasu.lib.gate.time.TimeTeller;
 import net.sasu.lib.gate.time.Timer;
 import net.sasu.lib.gate.time.NanosecondTimer;
 
@@ -51,8 +52,10 @@ public abstract class BaseEstimator implements Estimator {
 
     @Override
     public void start() {
-        this.timer = new NanosecondTimer();
-        timer.start();
+        if(this.timer == null) {
+            this.timer = new NanosecondTimer();
+        }
+        this.timer.start();
     }
 
     @Override
@@ -81,5 +84,12 @@ public abstract class BaseEstimator implements Estimator {
     @Override
     public void setTimer(Timer timer) {
         this.timer = timer;
+    }
+
+    @Override
+    public String getRemainingTimeAsString() {
+        TimeUnit timeUnit = TimeUnit.NANOSECONDS;
+        final long remainingTime = this.getRemainingTime(timeUnit);
+        return TimeTeller.outputElapsedTime(remainingTime, timeUnit);
     }
 }

@@ -20,20 +20,22 @@ public class BasicEstimatorTest {
         be.init(totalWorkUnits);
         be.setTimer(mockTimer);
 
-        Assertions.assertEquals(0, be.getElapsedTime(TimeUnit.NANOSECONDS));
-        Assertions.assertEquals(-1 , be.getRemainingTime(TimeUnit.NANOSECONDS));
+        final TimeUnit timeUnitNs = TimeUnit.NANOSECONDS;
+
+        Assertions.assertEquals(0, be.getElapsedTime(timeUnitNs));
+        Assertions.assertEquals(-1 , be.getRemainingTime(timeUnitNs));
 
         for(int i = 1; i < totalWorkUnits; i++) {
             mockTimer.increment();
             be.completeWorkUnits(1);
-            Assertions.assertEquals(i, be.getElapsedTime(TimeUnit.NANOSECONDS));
-            Assertions.assertEquals(totalWorkUnits - i, be.getRemainingTime(TimeUnit.NANOSECONDS));
+            Assertions.assertEquals(i, be.getElapsedTime(timeUnitNs));
+            Assertions.assertEquals(totalWorkUnits - i, be.getRemainingTime(timeUnitNs));
         }
 
         mockTimer.increment();
         be.completeWorkUnits(1);
 
-        Assertions.assertEquals(totalWorkUnits, be.getElapsedTime(TimeUnit.NANOSECONDS));
-        Assertions.assertEquals(0 , be.getRemainingTime(TimeUnit.NANOSECONDS));
+        Assertions.assertEquals(totalWorkUnits, be.getElapsedTime(timeUnitNs));
+        Assertions.assertEquals(0 , be.getRemainingTime(timeUnitNs));
     }
 }
