@@ -2,6 +2,9 @@ package net.sasu.lib.gate.time;
 
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Timer for measuring elapsed time and outputting it in a human-readable format
+ */
 public interface Timer {
 
     public void start();

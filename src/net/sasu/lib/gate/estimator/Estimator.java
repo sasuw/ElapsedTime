@@ -77,5 +77,10 @@ public interface Estimator<T extends Estimator<T>> {
      */
     public void stop();
 
+    /**
+     * Sets timer, when the standard timer should be replaced
+     *
+     * @param timer
+     */
     public void setTimer(Timer timer);
 }

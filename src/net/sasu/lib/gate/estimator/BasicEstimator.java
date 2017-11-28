@@ -34,16 +34,11 @@ public class BasicEstimator extends BaseEstimator {
 
         final long elapsedTime = this.getElapsedTime(timeUnit);
 
-        float completionFactor = (float) completedWorkUnits / remainingWorkUnits;
-        if (completedWorkUnits == 0f){
+        if (completedWorkUnits == 0){
             return -1;
         }
-        System.out.println("remainingWorkUnits:" + remainingWorkUnits);
-        System.out.println("completedWorkUnits:" + completedWorkUnits);
-        System.out.println("completionFactor:" + completionFactor);
 
         return remainingWorkUnits * elapsedTime / completedWorkUnits;
     }
-
 
 }
