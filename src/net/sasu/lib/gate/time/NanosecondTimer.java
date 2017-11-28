@@ -3,7 +3,7 @@ package net.sasu.lib.gate.time;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Measures passage of time. Typically used followingly:
+ * Measures passage of time using System.nanoTime(). Typically used followingly:
  * 
  * 1) Create instance and start timer with NanosecondTimer.getInstanceAndStart()
  * 2) Stop timer and get elapsed time as string with timer.getElapsedTimeAndStop()
