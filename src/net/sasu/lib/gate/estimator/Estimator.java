@@ -1,7 +1,8 @@
 package net.sasu.lib.gate.estimator;
 
 import java.util.concurrent.TimeUnit;
-import net.sasu.lib.gate.time.Timer;
+
+import net.sasu.lib.timer.Timer;
 
 /**
  * Estimator performing the concrete estimation, either general or optimized

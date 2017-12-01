@@ -2,6 +2,9 @@ package net.sasu.lib.gate.time;
 
 import java.util.concurrent.TimeUnit;
 
+import net.sasu.lib.timer.TimeTeller;
+import net.sasu.lib.timer.Timer;
+
 /**
  * Mock timer for time-independent unit tests.
  */
