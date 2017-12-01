@@ -56,5 +56,10 @@
 			<version>5.0.2</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>net.sasu.lib.timer</groupId>
+			<artifactId>timer</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
 	</dependencies>
 </project>
