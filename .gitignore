@@ -2,5 +2,6 @@
 .project
 .settings/
 target/**
+bin/**
 .idea
 gate.iml

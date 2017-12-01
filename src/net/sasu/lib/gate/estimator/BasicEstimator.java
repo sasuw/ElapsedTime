@@ -2,9 +2,6 @@ package net.sasu.lib.gate.estimator;
 
 import java.util.concurrent.TimeUnit;
 
-import net.sasu.lib.gate.time.TimeTeller;
-import net.sasu.lib.gate.time.Timer;
-
 /**
  * Basic implementation for estimations with low variability.
  * 
@@ -33,10 +30,6 @@ public class BasicEstimator extends BaseEstimator {
         }
 
         final long elapsedTime = this.getElapsedTime(timeUnit);
-
-        if (completedWorkUnits == 0){
-            return -1;
-        }
 
         return remainingWorkUnits * elapsedTime / completedWorkUnits;
     }

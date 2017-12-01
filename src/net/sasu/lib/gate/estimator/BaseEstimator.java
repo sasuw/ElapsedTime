@@ -5,9 +5,9 @@ package net.sasu.lib.gate.estimator;
 
 import java.util.concurrent.TimeUnit;
 
-import net.sasu.lib.gate.time.TimeTeller;
-import net.sasu.lib.gate.time.Timer;
-import net.sasu.lib.gate.time.NanosecondTimer;
+import net.sasu.lib.timer.NanosecondTimer;
+import net.sasu.lib.timer.TimeTeller;
+import net.sasu.lib.timer.Timer;
 
 /**
  * Base estimator for handling common tasks
@@ -15,14 +15,14 @@ import net.sasu.lib.gate.time.NanosecondTimer;
  * @author Sasu
  *
  */
-public abstract class BaseEstimator implements Estimator {
+public abstract class BaseEstimator implements Estimator<BaseEstimator> {
 
     private long totalWorkUnits;
     private long remainingWorkUnits;
     private Timer timer;
 
-    public Estimator init(long remainingWorkUnits, Timer timer){
-        final Estimator init = this.init(remainingWorkUnits);
+    public BaseEstimator init(long remainingWorkUnits, Timer timer){
+        final BaseEstimator init = this.init(remainingWorkUnits);
         init.setTimer(timer);
         return init;
     }

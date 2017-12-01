@@ -1,6 +1,4 @@
-package net.sasu.lib.gate.time;
-
-import java.util.concurrent.TimeUnit;
+package net.sasu.lib.timer;
 
 /**
  * Measures passage of time using System.nanoTime(). Typically used followingly:

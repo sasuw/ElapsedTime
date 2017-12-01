@@ -8,6 +8,9 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.junit.jupiter.api.Test;
+
+import net.sasu.lib.timer.TimeTeller;
+
 import org.junit.jupiter.api.Assertions;
 
 import java.util.Set;

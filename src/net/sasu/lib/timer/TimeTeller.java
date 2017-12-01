@@ -1,4 +1,4 @@
-package net.sasu.lib.gate.time;
+package net.sasu.lib.timer;
 
 import java.util.concurrent.TimeUnit;
 
