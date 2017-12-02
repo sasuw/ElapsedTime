@@ -1,7 +1,9 @@
 .classpath
 .project
-.settings/
-target/**
-bin/**
-.idea
-gate.iml
+**/target/**
+**/bin/**
+**/.idea
+**/gate.iml
+**/.DS_Store
+**/.settings/**
+**/*.swp
