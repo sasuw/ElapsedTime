@@ -32,5 +32,19 @@ After completing some amount of work, we inform the BasicEstimator of this.
 
 `basicEstimator.completeWorkUnits(1);`
 
-Finally, we show the user 
+Finally, we show the user the estimated amount of remaining time obtained from the call
+
+`basicEstimator.getRemainingTimeAsString()`
+
+, which outputs something like
+
+`15.0 seconds`
+or 
+`1 minute 2 seconds`
+or
+`1 hour 30 minutes`
+depending on the time left.
+
+# Implementing a better estimator
+The BasicEstimator is good for most basic use cases. For some estimations where more intelligence is needed (e.g. network or human-activity based estimations) you may want to implement your own estimator. This can be easily done by extending the class `BaseEstimator.java` (see `BasicEstimator.java` for an example) and implementing your own logic in method `getRemainingTime`.
 
