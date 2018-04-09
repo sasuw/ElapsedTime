@@ -20,7 +20,7 @@ public interface Estimator<T extends Estimator<T>> {
      * @param remainingWorkUnits
      * @return
      */
-    public T init(long remainingWorkUnits);
+    public T initAndStart(long remainingWorkUnits);
 
     /**
      * Initializes Estimator instance and returns a concrete instance.

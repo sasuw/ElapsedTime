@@ -22,7 +22,7 @@ public abstract class BaseEstimator implements Estimator<BaseEstimator> {
     private Timer timer;
 
     public BaseEstimator init(long remainingWorkUnits, Timer timer){
-        final BaseEstimator init = this.init(remainingWorkUnits);
+        final BaseEstimator init = this.initAndStart(remainingWorkUnits);
         init.setTimer(timer);
         return init;
     }

@@ -10,9 +10,14 @@ import java.util.concurrent.TimeUnit;
  */
 public class BasicEstimator extends BaseEstimator {
 
+	public static BasicEstimator createInstanceAndStart(long remainingWorkUnitsArg) {
+		return new BasicEstimator().initAndStart(remainingWorkUnitsArg);
+	}
+	
     @Override
-    public BasicEstimator init(long remainingWorkUnitsArg) {
+    public BasicEstimator initAndStart(long remainingWorkUnitsArg) {
         this.initializeRemainingWorkUnits(remainingWorkUnitsArg);
+        this.start();
         return this;
     }
 

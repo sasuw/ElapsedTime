@@ -17,7 +17,7 @@ public class BasicEstimatorTest {
         final MockTimer mockTimer = new MockTimer();
         final long totalWorkUnits = 10;
 
-        be.init(totalWorkUnits);
+        be.initAndStart(totalWorkUnits);
         be.setTimer(mockTimer);
 
         final TimeUnit timeUnitNs = TimeUnit.NANOSECONDS;
