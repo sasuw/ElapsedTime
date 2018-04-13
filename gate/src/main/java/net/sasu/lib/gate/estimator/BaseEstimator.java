@@ -6,8 +6,8 @@ package net.sasu.lib.gate.estimator;
 import java.util.concurrent.TimeUnit;
 
 import net.sasu.lib.timer.NanosecondTimer;
-import net.sasu.lib.timer.TimeTeller;
 import net.sasu.lib.timer.Timer;
+import net.sasu.lib.timeteller.VerboseTimeTeller;
 
 /**
  * Base estimator for handling common tasks
@@ -90,6 +90,6 @@ public abstract class BaseEstimator implements Estimator<BaseEstimator> {
     public String getRemainingTimeAsString() {
         TimeUnit timeUnit = TimeUnit.NANOSECONDS;
         final long remainingTime = this.getRemainingTime(timeUnit);
-        return TimeTeller.outputElapsedTime(remainingTime, timeUnit);
+        return new VerboseTimeTeller().outputElapsedTime(remainingTime, timeUnit);
     }
 }
