@@ -1,6 +1,6 @@
-package net.sasu.lib.gate.estimator;
+package net.sasu.lib.elapsedtime.estimator;
 
-import net.sasu.lib.gate.time.MockTimer;
+import net.sasu.lib.elapsedtime.time.MockTimer;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 

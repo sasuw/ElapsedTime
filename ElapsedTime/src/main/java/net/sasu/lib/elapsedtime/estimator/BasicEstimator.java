@@ -1,4 +1,4 @@
-package net.sasu.lib.gate.estimator;
+package net.sasu.lib.elapsedtime.estimator;
 
 import java.util.concurrent.TimeUnit;
 

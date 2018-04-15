@@ -1,13 +1,13 @@
 /**
  * 
  */
-package net.sasu.lib.gate.estimator;
+package net.sasu.lib.elapsedtime.estimator;
+
+import net.sasu.lib.elapsedtime.timer.NanosecondTimer;
+import net.sasu.lib.elapsedtime.timer.Timer;
+import net.sasu.lib.elapsedtime.timeteller.VerboseTimeTeller;
 
 import java.util.concurrent.TimeUnit;
-
-import net.sasu.lib.timer.NanosecondTimer;
-import net.sasu.lib.timer.Timer;
-import net.sasu.lib.timeteller.VerboseTimeTeller;
 
 /**
  * Base estimator for handling common tasks
