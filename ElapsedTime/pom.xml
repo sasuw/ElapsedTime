@@ -2,21 +2,20 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<groupId>net.sasu.lib.gate</groupId>
-	<artifactId>sasu-gate</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<groupId>net.sasu.lib.elapsedtime</groupId>
+	<artifactId>ElapsedTime</artifactId>
+	<version>0.8-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>Gives.Accurate.Temporal.Estimation</name>
-	<description>Gives.Accurate.Temporal.Estimation</description>
+	<name>ElapsedTime</name>
+	<description>Java library for measuring and estimating elapsed time</description>
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<java.version>1.9</java.version>
+		<java.version>1.8</java.version>
 	</properties>
 
 	<build>
-		<sourceDirectory>src</sourceDirectory>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -76,11 +75,6 @@
 			<artifactId>junit-vintage-engine</artifactId>
 			<version>5.1.0</version>
 			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>net.sasu.lib.timer</groupId>
-			<artifactId>timer</artifactId>
-			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
 	</dependencies>
 </project>
