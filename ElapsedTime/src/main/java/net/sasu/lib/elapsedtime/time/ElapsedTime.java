@@ -102,8 +102,6 @@ public class ElapsedTime {
      * @return
      */
     public SortedMap<TimeUnit, Long> getTimeValuesForVerboseOutput() {
-        SortedMap<TimeUnit, Long> verboseMap = new TreeMap<>();
-
         if (this.elapsedTimeNs < 1000) {
             return getLessThanOneMicrosecondVerboseMap();
         } else if (this.elapsedTimeNs < 1000000000L) {
