@@ -76,16 +76,15 @@ public class ElapsedTime {
      * @return
      */
     public SortedMap<TimeUnit, Long> getCommonZeroTimeValues() {
-        SortedMap<TimeUnit, Long> nonZeroTimeMap = new TreeMap<>();
+        SortedMap<TimeUnit, Long> commonTimeUnitMap = new TreeMap<>();
 
+        timeSplitToAllUnits[1] = timeSplitToAllUnits[1] + timeSplitToAllUnits[0] * 24;
         for (int i = 1; i < 5; i++) {
             Long time = timeSplitToAllUnits[i];
-            if (time != 0L) {
-                nonZeroTimeMap.put(allTimeUnitsDesc[i], time);
-            }
+            commonTimeUnitMap.put(allTimeUnitsDesc[i], time);
         }
 
-        return nonZeroTimeMap;
+        return commonTimeUnitMap;
     }
 
     /**

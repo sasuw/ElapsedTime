@@ -1,6 +1,7 @@
 package net.sasu.lib.elapsedtime.timeteller;
 
 import net.sasu.lib.elapsedtime.time.ElapsedTime;
+import net.sasu.lib.elapsedtime.util.StringUtil;
 
 import java.util.SortedMap;
 import java.util.concurrent.TimeUnit;
@@ -8,26 +9,31 @@ import java.util.concurrent.TimeUnit;
 /**
  * Outputs time for humans in a simple, numeric way in
  * format hh:mm:ss.mmm
- * 
- * @author Sasu
  *
+ * @author Sasu
  */
 public class SimpleTimeTeller implements TimeTeller {
 
-	private static final String DEFAULT_SEPARATOR = ":";
+    private static final String DEFAULT_SEPARATOR = ":";
 
-	/* (non-Javadoc)
-	 * @see net.sasu.lib.timeteller.TimeTeller#outputElapsedTime(long, java.util.concurrent.TimeUnit)
-	 */
-	@Override
-	public String outputElapsedTime(long timeElapsedInTimeUnits, TimeUnit timeUnit) {
-		ElapsedTime elapsedTime = new ElapsedTime(timeElapsedInTimeUnits, timeUnit);
-		SortedMap<TimeUnit, Long> nonZeroTimeValues = elapsedTime.getCommonZeroTimeValues();
+    /* (non-Javadoc)
+     * @see net.sasu.lib.timeteller.TimeTeller#outputElapsedTime(long, java.util.concurrent.TimeUnit)
+     */
+    @Override
+    public String outputElapsedTime(long timeElapsedInTimeUnits, TimeUnit timeUnit) {
+        ElapsedTime elapsedTime = new ElapsedTime(timeElapsedInTimeUnits, timeUnit);
+        SortedMap<TimeUnit, Long> commonZeroTimeValues = elapsedTime.getCommonZeroTimeValues();
 
-		return nonZeroTimeValues.get(TimeUnit.HOURS) + DEFAULT_SEPARATOR 
-				+ nonZeroTimeValues.get(TimeUnit.MINUTES) + DEFAULT_SEPARATOR 
-				+ nonZeroTimeValues.get(TimeUnit.SECONDS) + "."
-				+ nonZeroTimeValues.get(TimeUnit.MILLISECONDS) + DEFAULT_SEPARATOR;
-	}
+        final char padChar = '0';
+        final int hourMinSecLen = 2;
+        final int msLen = 3;
+        return StringUtil.padLeft(commonZeroTimeValues.get(TimeUnit.HOURS).toString(), padChar, hourMinSecLen)
+                + DEFAULT_SEPARATOR
+                + StringUtil.padLeft(commonZeroTimeValues.get(TimeUnit.MINUTES).toString(), padChar, hourMinSecLen)
+                + DEFAULT_SEPARATOR
+                + StringUtil.padLeft(commonZeroTimeValues.get(TimeUnit.SECONDS).toString(), padChar, hourMinSecLen)
+                + "."
+                + StringUtil.padLeft(commonZeroTimeValues.get(TimeUnit.MILLISECONDS).toString(), padChar, msLen);
+    }
 
 }
