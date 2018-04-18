@@ -47,7 +47,6 @@ public class VerboseTimeTellerTest {
         inputExcpectedOutputMap.put(60000000000L, "1 minute, 0 seconds");
         inputExcpectedOutputMap.put(61000000000L, "1 minute, 1 second");
         inputExcpectedOutputMap.put(62000000000L, "1 minute, 2 seconds");
-        inputExcpectedOutputMap.put(62000000000L, "1 minute, 2 seconds");
         inputExcpectedOutputMap.put(121000000000L, "2 minutes, 1 second");
         inputExcpectedOutputMap.put(122000000000L, "2 minutes, 2 seconds");
         inputExcpectedOutputMap.put(3540000000000L, "59 minutes, 0 seconds");
