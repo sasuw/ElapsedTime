@@ -1,4 +1,6 @@
-Java library for 
+# ElapsedTime
+
+This Java 8 library is for 
 * **estimating** remaining time of work for measurable tasks.
 * **measuring** elapsed time accurately
 * **outputting** elapsed time
