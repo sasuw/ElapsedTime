@@ -1,4 +1,4 @@
-package net.sasu.lib.elapsedtime.timer;
+package net.sasu.lib.elapsedtime.timeteller;
 
 
 import java.lang.reflect.InvocationTargetException;
