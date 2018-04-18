@@ -1,6 +1,15 @@
-Library for estimating remaining time of work for measurable tasks.
+Java library for 
+* **estimating** remaining time of work for measurable tasks.
+* **measuring** elapsed time accurately
+* **outputting** elapsed time
+
+# Code quality
+
+https://sonarcloud.io/dashboard?id=net.sasu.lib.elapsedtime%3AElapsedTime
 
 # Basic usage
+
+## Estimating time
 
 ```java
 public static void main(String[] args) throws InterruptedException{
@@ -45,6 +54,13 @@ or
 `1 hour 30 minutes`
 depending on the time left.
 
-# Implementing a better estimator
+### Implementing a better estimator
 The BasicEstimator is good for most basic use cases. For some estimations where more intelligence is needed (e.g. network or human-activity based estimations) you may want to implement your own estimator. This can be easily done by extending the class `BaseEstimator.java` (see `BasicEstimator.java` for an example) and implementing your own logic in method `getRemainingTime`.
 
+## Measuring time
+
+TODO
+
+## Outputting time
+
+TODO
