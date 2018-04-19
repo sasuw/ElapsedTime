@@ -65,16 +65,16 @@ This example outputs something like
 
 `1.002 seconds`
 
-```
-    public static void  main(String[] args) throws InterruptedException {
-        Timer nsTimer = new NanosecondTimer();
-        nsTimer.start();
+```java
+public static void  main(String[] args) throws InterruptedException {
+    Timer nsTimer = new NanosecondTimer();
+    nsTimer.start();
 
-        Thread.sleep(1000);
+    Thread.sleep(1000);
 
-        String elapsedTime = ((NanosecondTimer) nsTimer).getElapsedTimeAndStop();
-        System.out.println(elapsedTime);
-    }
+    String elapsedTime = ((NanosecondTimer) nsTimer).getElapsedTimeAndStop();
+    System.out.println(elapsedTime);
+}
 ```
 
 ## Outputting time
