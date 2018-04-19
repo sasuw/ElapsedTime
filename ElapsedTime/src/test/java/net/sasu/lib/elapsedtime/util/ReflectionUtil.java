@@ -22,6 +22,28 @@ public class ReflectionUtil {
         return f;
     }
 
+    /**
+     *
+     * @param clazz
+     * @param object
+     * @param fieldName
+     * @return
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
+    public static Object getPrivateFieldValue(Class<?> clazz, Object object, String fieldName) throws NoSuchFieldException, IllegalAccessException {
+        Field f = ReflectionUtil.makePrivateFieldAccessible(clazz, fieldName);
+        return f.get(object);
+    }
+
+    /**
+     *
+     * @param object
+     * @param fieldName
+     * @return
+     * @throws NoSuchFieldException
+     * @throws IllegalAccessException
+     */
     public static Object getPrivateFieldValue(Object object, String fieldName) throws NoSuchFieldException, IllegalAccessException {
         Field f = ReflectionUtil.makePrivateFieldAccessible(object.getClass(), fieldName);
         return f.get(object);
