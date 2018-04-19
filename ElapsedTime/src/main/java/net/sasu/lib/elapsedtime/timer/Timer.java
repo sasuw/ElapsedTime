@@ -9,20 +9,23 @@ import net.sasu.lib.elapsedtime.timeteller.VerboseTimeTeller;
  */
 public interface Timer {
 
+    /**
+     * Starts timer
+     */
     public void start();
 
+    /**
+     * Stops timer
+     */
     public void stop();
 
+    /**
+     * @return elapsed time in the base time units defined by this timer implementation
+     */
     public long getElapsedTimeRaw();
 
     /**
-     * Returns elapsed time as a human-readable string, e.g. "10 ms". If the elapsed
-     * time is at least one second, the time is returned always in seconds with
-     * three decimals, rounded down.
-     *
-     * @return
+     * @return Elapsed time with the default TimeTeller implementation of this Timer
      */
-    default String getElapsedTime() {
-        return new VerboseTimeTeller().outputElapsedTime(this.getElapsedTimeRaw(), TimeUnit.NANOSECONDS);
-    }
+    public String getElapsedTime();
 }

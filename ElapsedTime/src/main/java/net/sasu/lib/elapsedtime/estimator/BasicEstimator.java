@@ -1,5 +1,7 @@
 package net.sasu.lib.elapsedtime.estimator;
 
+import net.sasu.lib.elapsedtime.timer.Timer;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -17,6 +19,14 @@ public class BasicEstimator extends BaseEstimator {
     @Override
     public BasicEstimator initAndStart(long remainingWorkUnitsArg) {
         this.initializeRemainingWorkUnits(remainingWorkUnitsArg);
+        this.start();
+        return this;
+    }
+
+    @Override
+    public BaseEstimator initAndStart(long remainingWorkUnitsArg, Timer timer){
+        this.initializeRemainingWorkUnits(remainingWorkUnitsArg);
+        this.setTimer(timer);
         this.start();
         return this;
     }

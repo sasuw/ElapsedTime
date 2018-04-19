@@ -28,7 +28,7 @@ public interface Estimator<T extends Estimator<T>> {
      * @param remainingWorkUnits
      * @return
      */
-    public T init(long remainingWorkUnits, Timer timer);
+    public T initAndStart(long remainingWorkUnits, Timer timer);
     
     /**
      * Starts estimator
