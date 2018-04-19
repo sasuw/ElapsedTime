@@ -61,7 +61,21 @@ The BasicEstimator is good for most basic use cases. For some estimations where 
 
 ## Measuring time
 
-TODO
+This example outputs something like
+
+`1.002 seconds`
+
+```
+    public static void  main(String[] args) throws InterruptedException {
+        Timer nsTimer = new NanosecondTimer();
+        nsTimer.start();
+
+        Thread.sleep(1000);
+
+        String elapsedTime = ((NanosecondTimer) nsTimer).getElapsedTimeAndStop();
+        System.out.println(elapsedTime);
+    }
+```
 
 ## Outputting time
 
