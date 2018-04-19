@@ -1,5 +1,9 @@
 package net.sasu.lib.elapsedtime.timer;
 
+import net.sasu.lib.elapsedtime.timeteller.VerboseTimeTeller;
+
+import java.util.concurrent.TimeUnit;
+
 /**
  * Measures passage of time using System.nanoTime(). Typically used followingly:
  * 
@@ -61,6 +65,15 @@ public class NanosecondTimer implements Timer {
         return this.getElapsedTime();
     }
 
-
+    /**
+     * Returns elapsed time as a human-readable string, e.g. "10 ms". If the elapsed
+     * time is at least one second, the time is returned always in seconds with
+     * three decimals, rounded down.
+     *
+     * @return
+     */
+    public String getElapsedTime() {
+        return new VerboseTimeTeller().outputElapsedTime(this.getElapsedTimeRaw(), TimeUnit.NANOSECONDS);
+    }
 
 }

@@ -21,12 +21,6 @@ public abstract class BaseEstimator implements Estimator<BaseEstimator> {
     private long remainingWorkUnits;
     private Timer timer;
 
-    public BaseEstimator init(long remainingWorkUnits, Timer timer){
-        final BaseEstimator init = this.initAndStart(remainingWorkUnits);
-        init.setTimer(timer);
-        return init;
-    }
-
     @Override
     public void completeWorkUnits(long workUnitsCompleted) {
         if (workUnitsCompleted < 0) {
