@@ -1,9 +1,5 @@
 package net.sasu.lib.elapsedtime.timer;
 
-import java.util.concurrent.TimeUnit;
-
-import net.sasu.lib.elapsedtime.timeteller.VerboseTimeTeller;
-
 /**
  * Timer for measuring elapsed time and outputting it in a human-readable format
  */
