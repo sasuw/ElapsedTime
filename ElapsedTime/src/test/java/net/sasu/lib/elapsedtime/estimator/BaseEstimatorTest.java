@@ -6,13 +6,12 @@ import net.sasu.lib.elapsedtime.util.ReflectionUtil;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.TestInfo;
 
 import java.lang.reflect.Field;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-import static org.junit.jupiter.api.Assertions.fail;
+import static org.junit.jupiter.api.Assertions.*;
 
 
 public class BaseEstimatorTest {
@@ -24,16 +23,21 @@ public class BaseEstimatorTest {
 
         boolean initAndStartMethodCalled = false;
 
+
         @Override
-        public BaseEstimator initAndStart(long remainingWorkUnits) {
+        public BaseEstimator initAndStart(long remainingWorkUnitsArg) {
             initAndStartMethodCalled = true;
+            this.initializeRemainingWorkUnits(remainingWorkUnitsArg);
+            this.start();
+
             return this;
         }
 
         @Override
-        public BaseEstimator initAndStart(long remainingWorkUnits, Timer timer) {
-            fail("Should not be called");
-            return null;
+        public BaseEstimator initAndStart(long remainingWorkUnitsArg, Timer timer) {
+            this.setTimer(timer);
+            this.initializeRemainingWorkUnits(remainingWorkUnitsArg);
+            return this;
         }
 
         @Override
@@ -70,4 +74,21 @@ public class BaseEstimatorTest {
         this.mockEstimator.setTimer(this.mockTimer);
         assertEquals(this.mockTimer, this.mockEstimator.getTimer());
     }
+
+    @Test
+    public void completeWorkUnitsExceptionIae() {
+        Throwable exception = assertThrows(IllegalArgumentException.class,
+                ()->{this.mockEstimator.completeWorkUnits(-1);} );
+        assertNotNull(exception);
+    }
+
+    @Test
+    public void completeWorkUnitsExceptionIse() {
+        this.mockEstimator.initAndStart(10L);
+        Throwable exception = assertThrows(IllegalStateException.class,
+                ()->{this.mockEstimator.completeWorkUnits(11);} );
+        assertNotNull(exception);
+    }
+
+
 }

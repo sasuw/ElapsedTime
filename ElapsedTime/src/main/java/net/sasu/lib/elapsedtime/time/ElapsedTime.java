@@ -22,8 +22,8 @@ public class ElapsedTime {
     /**
      * Constructs new ElapsedTime object using the given elapsed time in given TimeUnit.
      *
-     * @param elapsedTimeArg
-     * @param timeUnitArg
+     * @param elapsedTimeArg amount of elapsed time
+     * @param timeUnitArg TimeUnit type of elapsed time
      */
     public ElapsedTime(long elapsedTimeArg, TimeUnit timeUnitArg) {
         this.elapsedTimeNs = TimeUnit.NANOSECONDS.convert(elapsedTimeArg, timeUnitArg);
@@ -47,7 +47,8 @@ public class ElapsedTime {
      * TimeUnit.HOURS: 2
      * TimeUnit.SECONDS: 3
      *
-     * @return
+     * @return a {@link SortedMap} collection that contains {@link TimeUnit} as
+     * key and {@link Long} as value.
      */
     public SortedMap<TimeUnit, Long> getNonZeroTimeValues() {
         SortedMap<TimeUnit, Long> nonZeroTimeMap = new TreeMap<>();
@@ -73,7 +74,8 @@ public class ElapsedTime {
      * TimeUnit.SECONDS: 3
      * TimeUnit.MILLISECONDS: 0
      *
-     * @return
+     * @return a {@link SortedMap} collection that contains {@link TimeUnit} as
+     * key and {@link Long} as value.
      */
     public SortedMap<TimeUnit, Long> getCommonZeroTimeValues() {
         SortedMap<TimeUnit, Long> commonTimeUnitMap = new TreeMap<>();
@@ -98,7 +100,7 @@ public class ElapsedTime {
      * - when time is less than one minute, only the largest and second largest time units are returned
      * - when time is at least one minute, all non-zero time units larger or equal to seconds are returned
      *
-     * @return
+     * @return a {@link SortedMap} collection that contains {@link TimeUnit} as key and {@link Long} as value.
      */
     public SortedMap<TimeUnit, Long> getTimeValuesForVerboseOutput() {
         if (this.elapsedTimeNs < 1000) {
@@ -159,7 +161,7 @@ public class ElapsedTime {
     /**
      * Return the largest TimeUnit of the represented time.
      *
-     * @return
+     * @return largest non-zero {@link TimeUnit}
      */
     public TimeUnit getLargestTimeUnit(){
         if(timeSplitToAllUnits == null || timeSplitToAllUnits.length == 0){

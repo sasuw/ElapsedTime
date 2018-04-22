@@ -43,9 +43,7 @@ public class NanosecondTimer implements Timer {
     }
     
     /**
-     * Returns elapsed time in nanoseconds
-     *
-     * @return
+     * @return elapsed time in nanoseconds
      */
     public long getElapsedTimeRaw() {
         if(this.isRunning){
@@ -55,10 +53,9 @@ public class NanosecondTimer implements Timer {
     }
 
     /**
-     * Stops timer and returns elapsed time as a human-readable string, e.g. "10
-     * ms".
+     * Stops timer and returns elapsed time as a human-readable string
      *
-     * @return
+     * @return elapsed time as a human-readable string, e.g. "10ms".
      */
     public String getElapsedTimeAndStop() {
         this.stop();
@@ -70,7 +67,7 @@ public class NanosecondTimer implements Timer {
      * time is at least one second, the time is returned always in seconds with
      * three decimals, rounded down.
      *
-     * @return
+     * @return elapsed time as a human-readable string, e.g. "10 ms"
      */
     public String getElapsedTime() {
         return new VerboseTimeTeller().outputElapsedTime(this.getElapsedTimeRaw(), TimeUnit.NANOSECONDS);

@@ -10,23 +10,24 @@ import net.sasu.lib.elapsedtime.timer.Timer;
  * 
  * @author Sasu
  *
- * @param <T>
+ * @param <T> Estimator type
  */
 public interface Estimator<T extends Estimator<T>> {
     
     /**
      * Initializes Estimator instance and returns a concrete instance.
      * 
-     * @param remainingWorkUnits
-     * @return
+     * @param remainingWorkUnits number of total work units
+     * @return instance of Estimator
      */
     public T initAndStart(long remainingWorkUnits);
 
     /**
      * Initializes Estimator instance and returns a concrete instance.
      *
-     * @param remainingWorkUnits
-     * @return
+     * @param remainingWorkUnits number of total work units
+     * @param timer instance of timer to be used
+     * @return instance of Estimator
      */
     public T initAndStart(long remainingWorkUnits, Timer timer);
     
@@ -38,38 +39,31 @@ public interface Estimator<T extends Estimator<T>> {
     /**
      * Completes given amount of work units.
      * 
-     * @param workUnitsCompleted
+     * @param workUnitsCompleted number of completed work units
      */
     public void completeWorkUnits(long workUnitsCompleted);
     
     /**
-     * Returns elapsed time in given time units
-     * 
-     * @param timeUnit
-     * @return
+     * @param timeUnit TimeUnit of elapsed time to return
+     * @return returns elapsed time in given time units
      */
     public long getElapsedTime(TimeUnit timeUnit);
     
     /**
-     * Returns remaining time in given time units. If time
-     * cannot be calculated -1 is returned.
+     *
      * 
-     * @param timeUnit
-     * @return
+     * @param timeUnit TimeUnit of elapsed time to return
+     * @return remaining time in given time units. If time cannot be calculated -1 is returned.
      */
     public long getRemainingTime(TimeUnit timeUnit);
     
     /**
-     * Returns remaining time as a human-readable string
-     * 
-     * @return
+     * @return remaining time as a human-readable string
      */
     public String getRemainingTimeAsString();
     
     /**
-     * Returns elapsed time as a human-readable string
-     * 
-     * @return
+     * @return elapsed time as a human-readable string
      */
     public String getElapsedTimeAsString();
     
@@ -81,7 +75,7 @@ public interface Estimator<T extends Estimator<T>> {
     /**
      * Sets timer, when the standard timer should be replaced
      *
-     * @param timer
+     * @param timer instance of timer to be used
      */
     public void setTimer(Timer timer);
 }

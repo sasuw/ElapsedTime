@@ -12,9 +12,9 @@ public interface TimeTeller {
 	/**
 	 * Returns given elapsed time as a string.
 	 * 
-	 * @param timeElapsedInTimeUnits
-	 * @param timeUnit
-	 * @return
+	 * @param timeElapsedInTimeUnits Elapsed time in given TimeUnit type
+	 * @param timeUnit TimeUnit type of elapsed time to output
+	 * @return elapsed time as string
 	 */
 	public String outputElapsedTime(long timeElapsedInTimeUnits, TimeUnit timeUnit);
 	
