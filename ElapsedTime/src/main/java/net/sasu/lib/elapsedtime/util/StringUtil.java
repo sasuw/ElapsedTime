@@ -15,10 +15,10 @@ public class StringUtil {
      * already has the at least the desired length, the original
      * string is returned.
      *
-     * @param inputString
-     * @param padChar
-     * @param len
-     * @return
+     * @param inputString string to pad
+     * @param padChar pad character
+     * @param len total (desired) length after padding
+     * @return padded String
      */
     public static String padLeft(String inputString, char padChar, int len){
         if(inputString == null){

@@ -32,7 +32,7 @@ public class VerboseTimeTeller implements TimeTeller {
      * <p>
      * All time units used for display (see java.util.concurrent.TimeUnit): day, hour, second, minute, millisecond, microsecond, nanosecond.
      *
-     * @return
+     * @return elapsed time as a human-readable string, e.g. "10 ms"
      */
     public String outputElapsedTime(long timeElapsedInTimeUnits, TimeUnit timeUnit) {
         ElapsedTime elapsedTime = new ElapsedTime(timeElapsedInTimeUnits, timeUnit);

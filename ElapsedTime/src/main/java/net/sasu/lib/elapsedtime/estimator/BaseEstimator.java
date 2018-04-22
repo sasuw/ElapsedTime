@@ -60,7 +60,7 @@ public abstract class BaseEstimator implements Estimator<BaseEstimator> {
     /**
      * Initializes the number of remaining work units
      * 
-     * @param totalWorkUnitsArg
+     * @param totalWorkUnitsArg total number of work units
      */
     public void initializeRemainingWorkUnits(long totalWorkUnitsArg) {
         this.remainingWorkUnits = totalWorkUnitsArg;
