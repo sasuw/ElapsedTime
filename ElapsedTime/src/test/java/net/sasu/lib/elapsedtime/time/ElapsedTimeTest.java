@@ -5,11 +5,15 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.concurrent.TimeUnit;
 
 import net.sasu.lib.elapsedtime.time.ElapsedTime;
+import net.sasu.lib.elapsedtime.util.StringUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * Tests for class ElapsedTime
@@ -64,4 +68,19 @@ public class ElapsedTimeTest {
 		}
 	}
 
+	@Test
+    public void getTimeValuesForVerboseOutputTest(){
+        ElapsedTime et = new ElapsedTime(1L, TimeUnit.SECONDS);
+        SortedMap<TimeUnit, Long> tv = et.getTimeValuesForVerboseOutput();
+        assertEquals(2, tv.size());
+        assertTrue(tv.get(TimeUnit.SECONDS) == 1L);
+        assertTrue(tv.get(TimeUnit.MILLISECONDS) == 0L);
+    }
+
+    @Test
+    public void getLargestTimeUnitTest() {
+        ElapsedTime et = new ElapsedTime(0L, TimeUnit.SECONDS);
+        TimeUnit ltu = et.getLargestTimeUnit();
+        assertEquals(TimeUnit.NANOSECONDS, ltu);
+    }
 }
