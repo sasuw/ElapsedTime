@@ -82,7 +82,7 @@ public abstract class BaseEstimator implements Estimator<BaseEstimator> {
 
     @Override
     public String getRemainingTimeAsString() {
-        TimeUnit timeUnit = TimeUnit.NANOSECONDS;
+        TimeUnit timeUnit = TimeUnit.SECONDS;
         final long remainingTime = this.getRemainingTime(timeUnit);
         return new VerboseTimeTeller().outputElapsedTime(remainingTime, timeUnit);
     }

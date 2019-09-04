@@ -51,11 +51,11 @@ public class SimpleTimeTellerTest {
         inputExcpectedOutputMap.put(86402000000000L, "24:00:02.000");
         inputExcpectedOutputMap.put(180000000000000L, "50:00:00.000");
 
-        SimpleTimeTeller vtt = new SimpleTimeTeller();
+        SimpleTimeTeller stt = new SimpleTimeTeller();
         
         Set<Entry<Long, String>> entrySet = inputExcpectedOutputMap.entrySet();
         for (Entry<Long, String> entry : entrySet) {
-            final String testResult = vtt.outputElapsedTime(entry.getKey(), TimeUnit.NANOSECONDS);
+            final String testResult = stt.outputElapsedTime(entry.getKey(), TimeUnit.NANOSECONDS);
             System.out.println(entry.getKey() + " / " + entry.getValue() + ": " + testResult);
             Assertions.assertEquals(entry.getValue(), testResult, "Test with input value " + entry.getKey() + " failed.");
         }
