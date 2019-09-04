@@ -1,11 +1,10 @@
 package net.sasu.lib.elapsedtime.timer;
 
-import net.sasu.lib.elapsedtime.util.ReflectionUtil;
-import org.junit.jupiter.api.Test;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+
+import org.junit.jupiter.api.Test;
 
 public class NanoSecondTimerTest {
 
