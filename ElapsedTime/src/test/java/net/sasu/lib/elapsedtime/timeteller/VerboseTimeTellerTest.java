@@ -2,6 +2,7 @@ package net.sasu.lib.elapsedtime.timeteller;
 
 
 import java.lang.reflect.InvocationTargetException;
+import java.text.DecimalFormat;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -23,6 +24,8 @@ import java.util.concurrent.TimeUnit;
  */
 public class VerboseTimeTellerTest {
 
+	private static final char DECIMAL_SEPARATOR = ((DecimalFormat) DecimalFormat.getInstance()).getDecimalFormatSymbols().getDecimalSeparator();
+	
     @Test
     public void getElapsedTimeTest() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         Map<Long, String> inputExcpectedOutputMap = new LinkedHashMap<>();
@@ -35,15 +38,15 @@ public class VerboseTimeTellerTest {
         inputExcpectedOutputMap.put(999999L, "999 microseconds");
         inputExcpectedOutputMap.put(1000000L, "1 millisecond");
         inputExcpectedOutputMap.put(999999999L, "999 milliseconds");
-        inputExcpectedOutputMap.put(1000000000L, "1.000 seconds");
-        inputExcpectedOutputMap.put(1001000000L, "1.001 seconds");
-        inputExcpectedOutputMap.put(1500000000L, "1.500 seconds");
-        inputExcpectedOutputMap.put(1601000000L, "1.601 seconds");
-        inputExcpectedOutputMap.put(15000000000L, "15.000 seconds");
-        inputExcpectedOutputMap.put(15030000000L, "15.030 seconds");
-        inputExcpectedOutputMap.put(12345678901L, "12.345 seconds");
-        inputExcpectedOutputMap.put(12895678901L, "12.895 seconds");
-        inputExcpectedOutputMap.put(59000000000L, "59.000 seconds");
+        inputExcpectedOutputMap.put(1000000000L, "1" + DECIMAL_SEPARATOR + "000 seconds");
+        inputExcpectedOutputMap.put(1001000000L, "1" + DECIMAL_SEPARATOR + "001 seconds");
+        inputExcpectedOutputMap.put(1500000000L, "1" + DECIMAL_SEPARATOR + "500 seconds");
+        inputExcpectedOutputMap.put(1601000000L, "1" + DECIMAL_SEPARATOR + "601 seconds");
+        inputExcpectedOutputMap.put(15000000000L, "15" + DECIMAL_SEPARATOR + "000 seconds");
+        inputExcpectedOutputMap.put(15030000000L, "15" + DECIMAL_SEPARATOR + "030 seconds");
+        inputExcpectedOutputMap.put(12345678901L, "12" + DECIMAL_SEPARATOR + "345 seconds");
+        inputExcpectedOutputMap.put(12895678901L, "12" + DECIMAL_SEPARATOR + "895 seconds");
+        inputExcpectedOutputMap.put(59000000000L, "59" + DECIMAL_SEPARATOR + "000 seconds");
         inputExcpectedOutputMap.put(60000000000L, "1 minute, 0 seconds");
         inputExcpectedOutputMap.put(61000000000L, "1 minute, 1 second");
         inputExcpectedOutputMap.put(62000000000L, "1 minute, 2 seconds");
