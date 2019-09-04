@@ -15,31 +15,34 @@ https://sonarcloud.io/dashboard?id=net.sasu.lib.elapsedtime%3AElapsedTime
 
 ```java
 public static void main(String[] args) throws InterruptedException{
-        Long unitsOfWork = 3000L;
+        Long unitsOfWork = 10L;
 
         BasicEstimator basicEstimator =  BasicEstimator.createInstanceAndStart(unitsOfWork);
 
         for(int i = 0; i < unitsOfWork; i++){
-            System.out.println("i: " + i);
+            System.out.println("Starting to execute one unit of work. Work left: " + (unitsOfWork - i) + " units.");
 
-            Random rnd = new Random();
-            final int sleepTime = 500;
+            final int sleepTime = 1000;
             Thread.sleep(sleepTime);
 
             basicEstimator.completeWorkUnits(1);
             final String remainingTimeAsString = basicEstimator.getRemainingTimeAsString();
-            System.out.println("remaining time: " + remainingTimeAsString);
+            System.out.println("Executed work unit. Remaining time: " + remainingTimeAsString);
         }
-    }
+}
 ```
 
 In this example, we do three things
 
-Create a new BasicEstimator object, initialize and start it. As constructor argument we give the total number of work units. A work unit could be e.g. byte, loop iteration counter etc. depending on context.
+1. Create a new BasicEstimator object
+2. Initialize the BasicEstimator object
+3. Start the BasicEstimator object
+
+As constructor argument we give the total number of work units. A work unit could be e.g. byte, loop iteration counter etc.
 
 `BasicEstimator basicEstimator =  BasicEstimator.createInstanceAndStart(unitsOfWork);`
 
-After completing some amount of work, we inform the BasicEstimator of this.
+After completing some amount of work, we inform the BasicEstimator how many work units we have completed.
 
 `basicEstimator.completeWorkUnits(1);`
 
@@ -79,4 +82,21 @@ public static void  main(String[] args) throws InterruptedException {
 
 ## Outputting time
 
-TODO
+You can output time in a nice, human-readable format using `SimpleTimeTeller` or `VerboseTimeTeller`.
+
+For example, when you want to output an amount of elapsed time in a consistent format for logging purposes, you could
+
+```java
+SimpleTimeTeller stt = new SimpleTimeTeller();
+log(stt.outputElapsedTime(15030000000L, TimeUnit.NANOSECONDS));
+```
+
+In this case, the output would be `00:00:15.030`
+
+When the output should be more verbose, you can use `VerboseTimeTeller`:
+
+```java
+VerboseTimeTeller stt = new VerboseTimeTeller();
+log(stt.outputElapsedTime(15030000000L, TimeUnit.NANOSECONDS));
+```
+In this case, the output would be `15.030 seconds`
