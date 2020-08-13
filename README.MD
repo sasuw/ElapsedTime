@@ -6,7 +6,7 @@ This Java 8 library is for
 * **measuring** elapsed time accurately
 * **outputting** elapsed time
 
-This library is light-weight: ca. 15 kilobytes, with no external dependencies and production-ready.
+This library is light-weight: the compiled JAR file is ca. 15 kilobytes, with no external dependencies and production-ready.
 
 ## Code quality
 
