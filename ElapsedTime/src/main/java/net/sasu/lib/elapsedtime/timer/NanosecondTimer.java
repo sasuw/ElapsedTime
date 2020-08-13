@@ -1,8 +1,6 @@
 package net.sasu.lib.elapsedtime.timer;
 
 import net.sasu.lib.elapsedtime.timeteller.VerboseTimeTeller;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.util.concurrent.TimeUnit;
 
@@ -16,8 +14,6 @@ import java.util.concurrent.TimeUnit;
  *
  */
 public class NanosecondTimer implements Timer {
-
-    final Logger logger = LoggerFactory.getLogger(NanosecondTimer.class);
 
     private long startTime; // in nanoseconds
     private long elapsedTime; // in nanoseconds
@@ -43,7 +39,6 @@ public class NanosecondTimer implements Timer {
     @Override
     public void stop() {
         if(!this.isRunning){
-            logger.warn("NanosecondTimer is not running, cannot stop");
             return;
         }
         this.elapsedTime = System.nanoTime() - this.startTime;
