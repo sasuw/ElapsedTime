@@ -3,7 +3,7 @@ package net.sasu.lib.elapsedtime.timeteller;
 import net.sasu.lib.elapsedtime.time.ElapsedTime;
 import net.sasu.lib.elapsedtime.util.StringUtil;
 
-import java.text.DecimalFormat;
+import java.text.DecimalFormatSymbols;
 import java.util.*;
 import java.util.Map.Entry;
 import java.util.concurrent.TimeUnit;
@@ -17,8 +17,8 @@ public class VerboseTimeTeller implements TimeTeller {
 
     private static final String DEFAULT_SEPARATOR = ", ";
 
-    private static final char DECIMAL_SEPARATOR = ((DecimalFormat) DecimalFormat.getInstance()).getDecimalFormatSymbols().getDecimalSeparator();
-
+    private static final char DECIMAL_SEPARATOR = new DecimalFormatSymbols(Locale.getDefault()).getDecimalSeparator();
+    
     /**
      * Returns elapsed time as a human-readable string, e.g. "10 ms". If the elapsed
      * time is more than one second but less than 60 seconds, the time is returned
@@ -43,7 +43,7 @@ public class VerboseTimeTeller implements TimeTeller {
             return "0 nanoseconds";
         }
 
-        Set<Entry<TimeUnit, Long>> timeValueEntries = ((TreeMap) timeValues).descendingMap().entrySet();
+        Set<Entry<TimeUnit, Long>> timeValueEntries = ((TreeMap<TimeUnit, Long>) timeValues).descendingMap().entrySet();
 
         StringBuilder sb = new StringBuilder();
 

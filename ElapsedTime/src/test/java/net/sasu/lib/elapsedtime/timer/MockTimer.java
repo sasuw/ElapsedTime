@@ -2,7 +2,6 @@ package net.sasu.lib.elapsedtime.timer;
 
 import java.util.concurrent.TimeUnit;
 
-import net.sasu.lib.elapsedtime.timer.Timer;
 import net.sasu.lib.elapsedtime.timeteller.VerboseTimeTeller;
 
 /**

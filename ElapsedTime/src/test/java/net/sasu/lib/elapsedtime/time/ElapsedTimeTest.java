@@ -1,7 +1,6 @@
 package net.sasu.lib.elapsedtime.time;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.lang.reflect.Field;
 import java.util.LinkedHashMap;
@@ -72,8 +71,8 @@ class ElapsedTimeTest {
         ElapsedTime et = new ElapsedTime(1L, TimeUnit.SECONDS);
         SortedMap<TimeUnit, Long> tv = et.getTimeValuesForVerboseOutput();
         assertEquals(2, tv.size());
-        assertTrue(tv.get(TimeUnit.SECONDS) == 1L);
-        assertTrue(tv.get(TimeUnit.MILLISECONDS) == 0L);
+        assertEquals(1L, tv.get(TimeUnit.SECONDS));
+        assertEquals(0L, tv.get(TimeUnit.MILLISECONDS));
     }
 
     @Test
