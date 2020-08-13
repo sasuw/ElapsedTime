@@ -6,9 +6,11 @@ This Java 8 library is for
 * **measuring** elapsed time accurately
 * **outputting** elapsed time
 
-# Code quality
+This library is light-weight: ca. 15 kilobytes, with no external dependencies and production-ready.
 
-https://sonarcloud.io/dashboard?id=net.sasu.lib.elapsedtime%3AElapsedTime
+## Code quality
+
+I strive to keep all essential parts of the code covered with unit tests to ensure that the code is as bug-free as possible. Details can be seen at Sonarcloud: [https://sonarcloud.io/dashboard?id=net.sasu.lib.elapsedtime%3AElapsedTime](URL)
 
 # Basic usage
 
