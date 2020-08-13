@@ -15,7 +15,7 @@ import net.sasu.lib.elapsedtime.timer.Timer;
 import net.sasu.lib.elapsedtime.util.ReflectionUtil;
 
 
-public class BaseEstimatorTest {
+class BaseEstimatorTest {
 
     MockEstimator mockEstimator;
     MockTimer mockTimer;
@@ -71,20 +71,20 @@ public class BaseEstimatorTest {
     }
 
     @Test
-    public void setTimerTest() throws NoSuchFieldException, IllegalAccessException {
+    void setTimerTest() throws NoSuchFieldException, IllegalAccessException {
         this.mockEstimator.setTimer(this.mockTimer);
         assertEquals(this.mockTimer, this.mockEstimator.getTimer());
     }
 
     @Test
-    public void completeWorkUnitsExceptionIae() {
+    void completeWorkUnitsExceptionIae() {
         Throwable exception = assertThrows(IllegalArgumentException.class,
                 ()->{this.mockEstimator.completeWorkUnits(-1);} );
         assertNotNull(exception);
     }
 
     @Test
-    public void completeWorkUnitsExceptionIse() {
+    void completeWorkUnitsExceptionIse() {
         this.mockEstimator.initAndStart(10L);
         Throwable exception = assertThrows(IllegalStateException.class,
                 ()->{this.mockEstimator.completeWorkUnits(11);} );

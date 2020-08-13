@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
 /**
  * Tests BasicEstimator
  */
-public class BasicEstimatorTest {
+class BasicEstimatorTest {
 
     @Test
-    public void getRemainingTimeTest(){
+    void getRemainingTimeTest(){
         BasicEstimator be = new BasicEstimator();
         final MockTimer mockTimer = new MockTimer();
         final long totalWorkUnits = 10;
