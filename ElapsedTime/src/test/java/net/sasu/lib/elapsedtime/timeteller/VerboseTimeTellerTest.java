@@ -9,8 +9,6 @@ import java.util.Map.Entry;
 
 import org.junit.jupiter.api.Test;
 
-import net.sasu.lib.elapsedtime.timeteller.VerboseTimeTeller;
-
 import org.junit.jupiter.api.Assertions;
 
 import java.util.Set;
@@ -22,12 +20,12 @@ import java.util.concurrent.TimeUnit;
  * @author Sasu
  *
  */
-public class VerboseTimeTellerTest {
+class VerboseTimeTellerTest {
 
 	private static final char DECIMAL_SEPARATOR = ((DecimalFormat) DecimalFormat.getInstance()).getDecimalFormatSymbols().getDecimalSeparator();
 	
     @Test
-    public void getElapsedTimeTest() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+    void getElapsedTimeTest() throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         Map<Long, String> inputExcpectedOutputMap = new LinkedHashMap<>();
 
         inputExcpectedOutputMap.put(0L, "0 nanoseconds");

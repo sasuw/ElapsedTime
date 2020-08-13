@@ -19,10 +19,10 @@ import org.junit.jupiter.api.Test;
  * 
  * @author Sasu
  */
-public class ElapsedTimeTest {
+class ElapsedTimeTest {
 
 	@Test
-	public void constructorTest() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
+	void constructorTest() throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException {
 		Map<ElapsedTime, Long[]> inputExcpectedOutputMap = new LinkedHashMap<>();
 
 		//define test cases
@@ -68,7 +68,7 @@ public class ElapsedTimeTest {
 	}
 
 	@Test
-    public void getTimeValuesForVerboseOutputTest(){
+    void getTimeValuesForVerboseOutputTest(){
         ElapsedTime et = new ElapsedTime(1L, TimeUnit.SECONDS);
         SortedMap<TimeUnit, Long> tv = et.getTimeValuesForVerboseOutput();
         assertEquals(2, tv.size());
@@ -77,7 +77,7 @@ public class ElapsedTimeTest {
     }
 
     @Test
-    public void getLargestTimeUnitTest() {
+    void getLargestTimeUnitTest() {
         ElapsedTime et = new ElapsedTime(0L, TimeUnit.SECONDS);
         TimeUnit ltu = et.getLargestTimeUnit();
         assertEquals(TimeUnit.NANOSECONDS, ltu);

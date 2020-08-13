@@ -9,10 +9,10 @@ import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class SimpleTimeTellerTest {
+class SimpleTimeTellerTest {
 
 	@Test
-	public void outputElapsedTimeTest() {
+	void outputElapsedTimeTest() {
 		Map<Long, String> inputExcpectedOutputMap = new LinkedHashMap<>();
 
         inputExcpectedOutputMap.put(0L, "00:00:00.000");

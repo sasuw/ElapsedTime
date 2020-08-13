@@ -6,10 +6,10 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
 
-public class NanoSecondTimerTest {
+class NanoSecondTimerTest {
 
     @Test
-    public void stopTest1() throws InterruptedException {
+    void stopTest1() throws InterruptedException {
         NanosecondTimer nst = new NanosecondTimer();
         nst.stop();
 
@@ -17,7 +17,7 @@ public class NanoSecondTimerTest {
     }
 
     @Test
-    public void stopTest2() throws InterruptedException {
+    void stopTest2() throws InterruptedException {
         NanosecondTimer nst = new NanosecondTimer();
         nst.start();
 
@@ -35,7 +35,7 @@ public class NanoSecondTimerTest {
     }
 
     @Test
-    public void getElapsedTimeRawTest() throws InterruptedException {
+    void getElapsedTimeRawTest() throws InterruptedException {
         NanosecondTimer nst = new NanosecondTimer();
         long elapsedTimeRaw0 = nst.getElapsedTimeRaw();
         assertEquals(0L, elapsedTimeRaw0);
@@ -55,7 +55,7 @@ public class NanoSecondTimerTest {
     }
 
     @Test
-    public void getElapsedTimeAndStopTest() throws InterruptedException {
+    void getElapsedTimeAndStopTest() throws InterruptedException {
         NanosecondTimer nst = new NanosecondTimer();
         nst.start();
         waitAFewNanoseconds();
