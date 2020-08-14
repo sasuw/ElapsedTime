@@ -6,6 +6,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * Basic implementation for estimations with low variability.
+ * The remaining time estimated is based on the assumption
+ * that all work units take approximately the same amount of 
+ * time to complete.
  * 
  * @author Sasu
  *

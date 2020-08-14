@@ -4,7 +4,7 @@
 
 	<groupId>net.sasu.lib.elapsedtime</groupId>
 	<artifactId>ElapsedTime</artifactId>
-	<version>0.9.2-SNAPSHOT</version>
+	<version>1.0.0</version>
 	<packaging>jar</packaging>
 
 	<name>ElapsedTime</name>

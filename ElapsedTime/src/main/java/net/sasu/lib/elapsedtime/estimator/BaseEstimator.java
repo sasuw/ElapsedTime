@@ -10,7 +10,8 @@ import net.sasu.lib.elapsedtime.timeteller.VerboseTimeTeller;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Base estimator for handling common tasks
+ * Base estimator for handling common tasks. If you don't want to implement
+ * your Estimator class from scratch, you can use this as a base.
  * 
  * @author Sasu
  *
@@ -30,7 +31,7 @@ public abstract class BaseEstimator implements Estimator<BaseEstimator> {
         this.remainingWorkUnits = this.remainingWorkUnits - workUnitsCompleted;
         if (this.remainingWorkUnits < 0) {
             throw new IllegalStateException(
-                    "More work than available completed. Remaining work units: " + this.remainingWorkUnits);
+                    "More work than available completemockEstimatord. Remaining work units: " + this.remainingWorkUnits);
         }
     }
 
@@ -80,6 +81,10 @@ public abstract class BaseEstimator implements Estimator<BaseEstimator> {
         this.timer = timer;
     }
 
+    /**
+     * Returns string containing estimated remaining time in seconds
+     * with a millisecond precision, e.g. "5.002 seconds"
+     */
     @Override
     public String getRemainingTimeAsString() {
         TimeUnit timeUnit = TimeUnit.SECONDS;

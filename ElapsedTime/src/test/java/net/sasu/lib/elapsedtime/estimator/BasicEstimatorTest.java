@@ -1,8 +1,13 @@
 package net.sasu.lib.elapsedtime.estimator;
 
 import net.sasu.lib.elapsedtime.time.MockTimer;
+import net.sasu.lib.elapsedtime.timer.Timer;
+import net.sasu.lib.elapsedtime.util.ReflectionUtil;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.util.concurrent.TimeUnit;
 
@@ -37,5 +42,23 @@ class BasicEstimatorTest {
 
         Assertions.assertEquals(totalWorkUnits, be.getElapsedTime(timeUnitNs));
         Assertions.assertEquals(0 , be.getRemainingTime(timeUnitNs));
+    }
+    
+    /**
+     * Tests method initAndStart(long remainingWorkUnitsArg, Timer timer)
+     * (the other initAndStartTest is implicitly tested in method getRemainingTimeTest)
+     * @throws IllegalAccessException 
+     * @throws NoSuchFieldException 
+     */
+    @Test
+    void initAndStartTest() throws NoSuchFieldException, IllegalAccessException {
+    	BasicEstimator be = new BasicEstimator();
+        final MockTimer mockTimer = new MockTimer();
+        final long totalWorkUnits = 10;
+
+        be.initAndStart(totalWorkUnits, mockTimer);
+        Timer timer = (Timer) ReflectionUtil.getPrivateFieldValue(be.getClass().getSuperclass(), be, "timer");
+        
+        assertEquals(mockTimer, timer);
     }
 }
