@@ -12,16 +12,18 @@ public class MockTimer implements Timer {
 
     private long startTime; // in nanoseconds
     private long elapsedTime; // in nanoseconds
-
+    private boolean isStarted = false;
+    
     @Override
     public void start() {
         this.startTime = 0L;
         this.elapsedTime = 0L;
+        this.isStarted = true;
     }
 
     @Override
     public void stop() {
-        //do nothing, it's ok
+        this.isStarted = false;
     }
 
     @Override
@@ -37,4 +39,14 @@ public class MockTimer implements Timer {
     public void increment(){
         this.elapsedTime++;
     }
+
+	public long getStartTime() {
+		return startTime;
+	}
+
+	public boolean isStarted() {
+		return isStarted;
+	}
+    
+    
 }
