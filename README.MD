@@ -10,7 +10,7 @@ This library is light-weight: the compiled JAR file is ca. 15 kilobytes, with no
 
 ## Code quality
 
-I strive to keep all essential parts of the code covered with unit tests to ensure that the code is as bug-free as possible. Details can be seen at Sonarcloud: [https://sonarcloud.io/dashboard?id=net.sasu.lib.elapsedtime%3AElapsedTime](URL)
+I strive to keep all essential parts of the code covered with unit tests to ensure that the code is as bug-free as possible. Details can be seen at Sonarcloud: https://sonarcloud.io/dashboard?id=net.sasu.lib.elapsedtime%3AElapsedTime
 
 # Basic usage
 
