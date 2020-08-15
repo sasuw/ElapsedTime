@@ -23,19 +23,24 @@ The code is licensed under MIT license. Basically, you can do whatever you want 
 
 You can add the library using the [Jitpack repository](https://jitpack.io/#sasuw/ElapsedTime) to your Maven project:
 
- 1. Add the Jitpack repository to your project by adding the repository to your pom.xml 	
+Add the Jitpack repository to your project by adding the repository to your pom.xml
+
     <repositories>
 		<repository>
 		    <id>jitpack.io</id>
 		    <url>https://jitpack.io</url>
 		</repository>
 	</repositories>
- 2. Add the dependency to your pom.xml
+
+Add the dependency to your pom.xml
+
     <dependency>
 	    <groupId>com.github.sasuw</groupId>
 	    <artifactId>ElapsedTime</artifactId>
-	    <version>1.0.1</version>
+	    <version>1.0.2</version>
 	</dependency>
+
+For adding this library to your gradle, sbt or leiningen project, see the instructions at [ElapsedTime Jitpack](https://jitpack.io/#sasuw/ElapsedTime)
 
 
 ## Estimating time
