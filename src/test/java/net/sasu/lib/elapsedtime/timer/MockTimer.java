@@ -38,4 +38,13 @@ public class MockTimer implements Timer {
     public void increment(){
         this.elapsedTime++;
     }
+
+	public long getStartTime() {
+		return startTime;
+	}
+
+	public Boolean getIsStarted() {
+		return isStarted;
+	}
+    
 }

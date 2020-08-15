@@ -12,7 +12,31 @@ This library is light-weight: the compiled JAR file is ca. 15 kilobytes, with no
 
 I strive to keep all essential parts of the code covered with unit tests to ensure that the code is as bug-free as possible. Details can be seen at Sonarcloud: [https://sonarcloud.io/dashboard?id=net.sasu.lib.elapsedtime%3AElapsedTime](URL)
 
+## License
+
+The code is licensed under MIT license. Basically, you can do whatever you want as long as you include the original copyright and license notice in any copy of the software/source.
+
+
 # Basic usage
+
+## Project integration
+
+You can add the library using the [Jitpack repository](https://jitpack.io/#sasuw/ElapsedTime) to your Maven project:
+
+ 1. Add the Jitpack repository to your project by adding the repository to your pom.xml 	
+    <repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+ 2. Add the dependency to your pom.xml
+    <dependency>
+	    <groupId>com.github.sasuw</groupId>
+	    <artifactId>ElapsedTime</artifactId>
+	    <version>1.0.1</version>
+	</dependency>
+
 
 ## Estimating time
 
