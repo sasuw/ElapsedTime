@@ -111,6 +111,27 @@
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.9.1</version>
 			</plugin>
+			<!-- 
+				maven-dependency-plugin for SonarQube so that
+				sonar.java.libraries parameter can be set
+				to ./target/dist/lib/third-party/*.jar
+			-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-dependency-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-dependencies-third-party</id>
+						<phase>prepare-package</phase>
+						<goals>
+							<goal>copy-dependencies</goal>
+						</goals>
+						<configuration>
+							<outputDirectory>target/dist/lib/third-party</outputDirectory>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 

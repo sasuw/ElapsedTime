@@ -16,6 +16,9 @@ I strive to keep all essential parts of the code covered with unit tests to ensu
 
 The code is licensed under MIT license. Basically, you can do whatever you want as long as you include the original copyright and license notice in any copy of the software/source.
 
+## Changelog
+
+See [https://github.com/sasuw/ElapsedTime/blob/master/CHANGELOG.md](https://github.com/sasuw/ElapsedTime/blob/master/CHANGELOG.md)
 
 # Basic usage
 
