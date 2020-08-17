@@ -15,12 +15,12 @@ import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
- * Tests TimeTeller
+ * Tests TimePrinter
  * 
  * @author Sasu
  *
  */
-class VerboseTimeTellerTest {
+class VerboseTimePrinterTest {
 
 	private static final char DECIMAL_SEPARATOR = ((DecimalFormat) DecimalFormat.getInstance()).getDecimalFormatSymbols().getDecimalSeparator();
 	
@@ -64,7 +64,7 @@ class VerboseTimeTellerTest {
         inputExcpectedOutputMap.put(86402000000000L, "1 day, 0 hours, 0 minutes, 2 seconds");
         inputExcpectedOutputMap.put(180000000000000L, "2 days, 2 hours, 0 minutes, 0 seconds");
 
-        VerboseTimeTeller vtt = new VerboseTimeTeller();
+        VerboseTimePrinter vtt = new VerboseTimePrinter();
         
         Set<Entry<Long, String>> entrySet = inputExcpectedOutputMap.entrySet();
         for (Entry<Long, String> entry : entrySet) {

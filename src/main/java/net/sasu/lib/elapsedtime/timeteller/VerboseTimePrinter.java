@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  *
  * @author Sasu
  */
-public class VerboseTimeTeller implements TimeTeller {
+public class VerboseTimePrinter implements TimePrinter {
 
     private static final String DEFAULT_SEPARATOR = ", ";
 
@@ -58,7 +58,7 @@ public class VerboseTimeTeller implements TimeTeller {
             Entry<TimeUnit, Long> milliSeconds = iterator.next();
 
             sb.append(seconds.getValue());
-            sb.append(VerboseTimeTeller.DECIMAL_SEPARATOR);
+            sb.append(VerboseTimePrinter.DECIMAL_SEPARATOR);
             sb.append(StringUtil.padLeft(milliSeconds.getValue().toString(), '0', 3));
             sb.append(" seconds");
         } else {

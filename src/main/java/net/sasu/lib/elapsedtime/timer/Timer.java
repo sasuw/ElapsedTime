@@ -8,20 +8,21 @@ public interface Timer {
     /**
      * Starts timer
      */
-    public void start();
+    public abstract void start();
 
     /**
      * Stops timer
      */
-    public void stop();
+    public abstract void stop();
 
     /**
      * @return elapsed time in the base time units defined by this timer implementation
      */
-    public long getElapsedTimeRaw();
+    public abstract long getElapsedTimeRaw();
 
     /**
-     * @return Elapsed time with the default TimeTeller implementation of this Timer
+     * @return Elapsed time with the default TimePrinter implementation of this Timer
      */
-    public String getElapsedTime();
+    public abstract String getElapsedTime();
+    
 }

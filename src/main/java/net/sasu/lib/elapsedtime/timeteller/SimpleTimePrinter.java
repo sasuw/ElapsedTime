@@ -12,12 +12,12 @@ import java.util.concurrent.TimeUnit;
  *
  * @author Sasu
  */
-public class SimpleTimeTeller implements TimeTeller {
+public class SimpleTimePrinter implements TimePrinter {
 
     private static final String DEFAULT_SEPARATOR = ":";
 
     /* (non-Javadoc)
-     * @see net.sasu.lib.timeteller.TimeTeller#outputElapsedTime(long, java.util.concurrent.TimeUnit)
+     * @see net.sasu.lib.timeteller.TimePrinter#outputElapsedTime(long, java.util.concurrent.TimeUnit)
      */
     @Override
     public String outputElapsedTime(long timeElapsedInTimeUnits, TimeUnit timeUnit) {

@@ -7,7 +7,7 @@ import java.util.concurrent.TimeUnit;
  * 
  * @author Sasu
  */
-public interface TimeTeller {
+public interface TimePrinter {
 
 	/**
 	 * Returns given elapsed time as a string.
