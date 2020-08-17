@@ -2,7 +2,7 @@ package net.sasu.lib.elapsedtime.timer;
 
 import java.util.concurrent.TimeUnit;
 
-import net.sasu.lib.elapsedtime.timeteller.VerboseTimeTeller;
+import net.sasu.lib.elapsedtime.timeteller.VerboseTimePrinter;
 
 /**
  * Mock timer for time-independent unit tests.
@@ -27,7 +27,7 @@ public class MockTimer implements Timer {
 
     @Override
     public String getElapsedTime() {
-        return new VerboseTimeTeller().outputElapsedTime(this.elapsedTime, TimeUnit.NANOSECONDS);
+        return new VerboseTimePrinter().outputElapsedTime(this.elapsedTime, TimeUnit.NANOSECONDS);
     }
 
     @Override
@@ -46,5 +46,5 @@ public class MockTimer implements Timer {
 	public Boolean getIsStarted() {
 		return isStarted;
 	}
-    
+
 }

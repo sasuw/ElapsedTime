@@ -6,7 +6,7 @@ This Java 8 library is for
 * **measuring** elapsed time accurately
 * **outputting** elapsed time
 
-This library is light-weight: the compiled JAR file is ca. 15 kilobytes, with no external dependencies and production-ready.
+This library is light-weight: the compiled JAR file is ca. 15 kilobytes, with no external dependencies.
 
 ## Code quality
 
@@ -98,37 +98,38 @@ The BasicEstimator is good for most basic use cases. For some estimations where 
 
 This example outputs something like
 
-`1.002 seconds`
+`1.000 seconds`
 
 ```java
 public static void  main(String[] args) throws InterruptedException {
-    Timer nsTimer = new NanosecondTimer();
-    nsTimer.start();
+    Timer timer = new DefaultTimer();
+    timer.start();
 
     Thread.sleep(1000);
-
-    String elapsedTime = ((NanosecondTimer) nsTimer).getElapsedTimeAndStop();
+    
+    timer.stop();
+    String elapsedTime = timer.getElapsedTime();
     System.out.println(elapsedTime);
 }
 ```
 
 ## Outputting time
 
-You can output time in a nice, human-readable format using `SimpleTimeTeller` or `VerboseTimeTeller`.
+You can output time in a nice, human-readable format using `SimpleTimePrinter` or `VerboseTimePrinter`.
 
 For example, when you want to output an amount of elapsed time in a consistent format for logging purposes, you could
 
 ```java
-SimpleTimeTeller stt = new SimpleTimeTeller();
+SimpleTimePrinter stt = new SimpleTimePrinter();
 log(stt.outputElapsedTime(15030000000L, TimeUnit.NANOSECONDS));
 ```
 
 In this case, the output would be `00:00:15.030`
 
-When the output should be more verbose, you can use `VerboseTimeTeller`:
+When the output should be more verbose, you can use `VerboseTimePrinter`:
 
 ```java
-VerboseTimeTeller stt = new VerboseTimeTeller();
+VerboseTimePrinter stt = new VerboseTimePrinter();
 log(stt.outputElapsedTime(15030000000L, TimeUnit.NANOSECONDS));
 ```
 In this case, the output would be `15.030 seconds`

@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-class SimpleTimeTellerTest {
+class SimpleTimePrinterTest {
 
 	@Test
 	void outputElapsedTimeTest() {
@@ -51,7 +51,7 @@ class SimpleTimeTellerTest {
         inputExcpectedOutputMap.put(86402000000000L, "24:00:02.000");
         inputExcpectedOutputMap.put(180000000000000L, "50:00:00.000");
 
-        SimpleTimeTeller stt = new SimpleTimeTeller();
+        SimpleTimePrinter stt = new SimpleTimePrinter();
         
         Set<Entry<Long, String>> entrySet = inputExcpectedOutputMap.entrySet();
         for (Entry<Long, String> entry : entrySet) {

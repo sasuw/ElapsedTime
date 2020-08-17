@@ -5,7 +5,7 @@ package net.sasu.lib.elapsedtime.estimator;
 
 import net.sasu.lib.elapsedtime.timer.NanosecondTimer;
 import net.sasu.lib.elapsedtime.timer.Timer;
-import net.sasu.lib.elapsedtime.timeteller.VerboseTimeTeller;
+import net.sasu.lib.elapsedtime.timeteller.VerboseTimePrinter;
 
 import java.util.concurrent.TimeUnit;
 
@@ -89,6 +89,6 @@ public abstract class BaseEstimator implements Estimator<BaseEstimator> {
     public String getRemainingTimeAsString() {
         TimeUnit timeUnit = TimeUnit.SECONDS;
         final long remainingTime = this.getRemainingTime(timeUnit);
-        return new VerboseTimeTeller().outputElapsedTime(remainingTime, timeUnit);
+        return new VerboseTimePrinter().outputElapsedTime(remainingTime, timeUnit);
     }
 }
