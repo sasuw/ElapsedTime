@@ -1,8 +1,8 @@
 package net.sasu.lib.elapsedtime.timer;
 
+import net.sasu.lib.elapsedtime.timeprinter.VerboseTimePrinter;
 import net.sasu.lib.elapsedtime.timer.timesource.SystemMilliSecondTimeSource;
 import net.sasu.lib.elapsedtime.timer.timesource.TimeSource;
-import net.sasu.lib.elapsedtime.timeteller.VerboseTimePrinter;
 
 /**
  * Measures passage of time using the given time source, or if none

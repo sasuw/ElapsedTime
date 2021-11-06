@@ -3,9 +3,9 @@
  */
 package net.sasu.lib.elapsedtime.estimator;
 
+import net.sasu.lib.elapsedtime.timeprinter.VerboseTimePrinter;
 import net.sasu.lib.elapsedtime.timer.NanosecondTimer;
 import net.sasu.lib.elapsedtime.timer.Timer;
-import net.sasu.lib.elapsedtime.timeteller.VerboseTimePrinter;
 
 import java.util.concurrent.TimeUnit;
 

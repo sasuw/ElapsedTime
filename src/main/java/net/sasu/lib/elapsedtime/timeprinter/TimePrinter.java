@@ -1,4 +1,4 @@
-package net.sasu.lib.elapsedtime.timeteller;
+package net.sasu.lib.elapsedtime.timeprinter;
 
 import java.util.concurrent.TimeUnit;
 

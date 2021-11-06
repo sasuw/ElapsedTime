@@ -2,7 +2,7 @@ package net.sasu.lib.elapsedtime.timer;
 
 import java.util.concurrent.TimeUnit;
 
-import net.sasu.lib.elapsedtime.timeteller.VerboseTimePrinter;
+import net.sasu.lib.elapsedtime.timeprinter.VerboseTimePrinter;
 
 /**
  * Mock timer for time-independent unit tests.

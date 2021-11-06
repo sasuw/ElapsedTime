@@ -2,6 +2,10 @@
 
 Changelog for project EstimatedTime. This project uses semantic versioning (see [https://semver.org/](https://semver.org/))
 
+## v. 2.0.1
+
+  * updated dependencies
+
 ## v. 2.0.0-alpha
 
   * default timer uses now System.currentTimeInMillis() as time source instead of System.nanoTime(), as the latter proved to be too unreliable for normal use cases

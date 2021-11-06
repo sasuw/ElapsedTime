@@ -1,4 +1,4 @@
-package net.sasu.lib.elapsedtime.timeteller;
+package net.sasu.lib.elapsedtime.timeprinter;
 
 import net.sasu.lib.elapsedtime.time.ElapsedTime;
 import net.sasu.lib.elapsedtime.util.StringUtil;

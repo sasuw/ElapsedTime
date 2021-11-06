@@ -9,6 +9,8 @@ import java.util.Map.Entry;
 
 import org.junit.jupiter.api.Test;
 
+import net.sasu.lib.elapsedtime.timeprinter.VerboseTimePrinter;
+
 import org.junit.jupiter.api.Assertions;
 
 import java.util.Set;

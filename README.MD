@@ -40,7 +40,7 @@ Add the dependency to your pom.xml
     <dependency>
 	    <groupId>com.github.sasuw</groupId>
 	    <artifactId>ElapsedTime</artifactId>
-	    <version>1.0.2</version>
+	    <version>2.0.1</version>
 	</dependency>
 
 For adding this library to your gradle, sbt or leiningen project, see the instructions at [ElapsedTime Jitpack](https://jitpack.io/#sasuw/ElapsedTime)

@@ -9,6 +9,8 @@ import java.util.concurrent.TimeUnit;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import net.sasu.lib.elapsedtime.timeprinter.SimpleTimePrinter;
+
 class SimpleTimePrinterTest {
 
 	@Test
