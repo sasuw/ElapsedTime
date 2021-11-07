@@ -5,7 +5,7 @@
 
 	<groupId>net.sasu.lib.elapsedtime</groupId>
 	<artifactId>ElapsedTime</artifactId>
-	<version>2.0.1</version>
+	<version>2.0.2</version>
 	<packaging>jar</packaging>
 
 	<name>ElapsedTime</name>
@@ -35,11 +35,6 @@
 				<artifactId>maven-surefire-report-plugin</artifactId>
 				<version>2.22.2</version>
 			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-checkstyle-plugin</artifactId>
-				<version>3.1.2</version>
-			</plugin>
 		</plugins>
 	</reporting>
 
@@ -58,46 +53,6 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>2.22.2</version>
 			</plugin>
-
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>${jacoco.version}</version>
-				<executions>
-					<execution>
-						<id>prepare-agent</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>report</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>post-unit-test</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-						<configuration>
-							<!-- Sets the path to the file which contains the execution data. -->
-
-							<dataFile>target/jacoco.exec</dataFile>
-							<!-- Sets the output directory for the code coverage report. -->
-							<outputDirectory>target/jacoco-ut</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-				<configuration>
-					<systemPropertyVariables>
-						<jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
-					</systemPropertyVariables>
-				</configuration>
-			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-javadoc-plugin</artifactId>
@@ -111,29 +66,88 @@
 				<artifactId>maven-site-plugin</artifactId>
 				<version>3.9.1</version>
 			</plugin>
-			<!-- 
-				maven-dependency-plugin for SonarQube so that
-				sonar.java.libraries parameter can be set
-				to ./target/dist/lib/third-party/*.jar
-			-->
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-dependency-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>copy-dependencies-third-party</id>
-						<phase>prepare-package</phase>
-						<goals>
-							<goal>copy-dependencies</goal>
-						</goals>
-						<configuration>
-							<outputDirectory>target/dist/lib/third-party</outputDirectory>
-						</configuration>
-					</execution>
-				</executions>
-			</plugin>
 		</plugins>
 	</build>
+
+	<profiles>
+		<profile>
+			<id>sonarcloud</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<sonar.host.url>https://sonarcloud.io/</sonar.host.url>
+				<sonar.organization>your_origination</sonar.organization>
+				<sonar.login>your_security_token</sonar.login>
+			</properties>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.jacoco</groupId>
+						<artifactId>jacoco-maven-plugin</artifactId>
+						<version>${jacoco.version}</version>
+						<executions>
+							<execution>
+								<id>prepare-agent</id>
+								<goals>
+									<goal>prepare-agent</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>report</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>report</goal>
+								</goals>
+							</execution>
+							<execution>
+								<id>post-unit-test</id>
+								<phase>test</phase>
+								<goals>
+									<goal>report</goal>
+								</goals>
+								<configuration>
+									<!-- Sets the path to the file which contains the execution data. -->
+
+									<dataFile>target/jacoco.exec</dataFile>
+									<!-- Sets the output directory for the code coverage report. -->
+									<outputDirectory>target/jacoco-ut</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+						<configuration>
+							<systemPropertyVariables>
+								<jacoco-agent.destfile>target/jacoco.exec</jacoco-agent.destfile>
+							</systemPropertyVariables>
+						</configuration>
+					</plugin>
+
+					<!--
+                        maven-dependency-plugin for SonarQube so that
+                        sonar.java.libraries parameter can be set
+                        to ./target/dist/lib/third-party/*.jar
+                    -->
+					<plugin>
+						<groupId>org.apache.maven.plugins</groupId>
+						<artifactId>maven-dependency-plugin</artifactId>
+						<executions>
+							<execution>
+								<id>copy-dependencies-third-party</id>
+								<phase>prepare-package</phase>
+								<goals>
+									<goal>copy-dependencies</goal>
+								</goals>
+								<configuration>
+									<outputDirectory>target/dist/lib/third-party</outputDirectory>
+								</configuration>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+		</profile>
+
+	</profiles>
 
 	<dependencies>
 		<dependency>

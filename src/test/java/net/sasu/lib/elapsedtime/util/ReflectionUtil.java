@@ -27,7 +27,7 @@ public class ReflectionUtil {
      * @param clazz
      * @param object
      * @param fieldName
-     * @return
+     * @return field value
      * @throws NoSuchFieldException
      * @throws IllegalAccessException
      */
@@ -40,7 +40,7 @@ public class ReflectionUtil {
      *
      * @param object
      * @param fieldName
-     * @return
+     * @return field value
      * @throws NoSuchFieldException
      * @throws IllegalAccessException
      */

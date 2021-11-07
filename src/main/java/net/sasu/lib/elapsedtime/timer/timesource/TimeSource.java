@@ -13,7 +13,8 @@ public interface TimeSource {
 	/**
 	 * Returns the current time according to the 
 	 * underlying time source.
-	 * @return
+	 *
+	 * @return Current time in the TimeUnit used by this time TimeSource
 	 */
 	public long getCurrentTime();
 	
@@ -21,7 +22,7 @@ public interface TimeSource {
 	 * Returns the time unit, on which the underlying
 	 * time source is based.
 	 * 
-	 * @return
+	 * @return @see TimeUnit
 	 */
 	public TimeUnit getDefaultTimeUnit();
 	
