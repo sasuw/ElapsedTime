@@ -1,5 +1,7 @@
 # ElapsedTime
 
+As of 30.03.2025 this repository is archived. The functionality has been or will be replaced by libraries under net.sasu.lib.time. See https://github.com/net-sasu-lib
+
 This Java 8 library is for
 
 * **estimating** remaining time of work for measurable tasks
